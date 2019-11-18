@@ -3,7 +3,7 @@
 
 typedef struct linked_list
 {
-    int data;
+    char data;
     struct linked_list *next;
 } linked_list_t;
 

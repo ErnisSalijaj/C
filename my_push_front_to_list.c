@@ -5,9 +5,11 @@
 **      [...]
 */
 
-#include"../include/my_list.h"
- 
-linked_list_t   *my_push_front_to_list(int value, linked_list_t *list)
+#include"my_list.h"
+#include<stdlib.h>
+#include<unistd.h>
+
+linked_list_t   *my_push_front_to_list(char value, linked_list_t *list)
 {
     linked_list_t *node;
 
@@ -19,3 +21,25 @@ linked_list_t   *my_push_front_to_list(int value, linked_list_t *list)
     return (node);
 }
 
+void my_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+int main(int argc, char ** argv)
+{
+    linked_list_t *list;
+    linked_list_t *tmp;
+
+    list = NULL;
+    list = my_push_front_to_list('c', list);
+    list = my_push_front_to_list('b', list);
+    list = my_push_front_to_list('a', list);
+    tmp = list;
+    while (tmp != 0)
+        {
+            my_putchar(tmp->data);
+            tmp = tmp->next;
+        }
+    return (0);
+}
